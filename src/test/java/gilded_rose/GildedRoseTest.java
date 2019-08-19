@@ -28,4 +28,26 @@ public class GildedRoseTest {
 
         Assert.assertEquals("Sulfuras, Hand of Ragnaros, 10, 49",gildedRose.getItems()[0].toString());
     }
+
+    @Test
+    public void should_return_sellIn_10_quality_50_given_rose_Sulfuras_sellIn_10_quality_50(){
+        Item item = new Item("Sulfuras, Hand of Ragnaros",10,50);
+        Item[] items = new Item[]{item};
+
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        Assert.assertEquals("Sulfuras, Hand of Ragnaros, 10, 50",gildedRose.getItems()[0].toString());
+    }
+
+    @Test
+    public void should_return_sellIn_9_quality_49_given_rose_Aged_sellIn_10_quality_49(){
+        Item item = new Item("Aged Brie",10,49);
+        Item[] items = new Item[]{item};
+
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        Assert.assertEquals("Aged Brie, 9, 50",gildedRose.getItems()[0].toString());
+    }
 }
