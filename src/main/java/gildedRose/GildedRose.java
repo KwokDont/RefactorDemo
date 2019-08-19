@@ -48,9 +48,7 @@ public class GildedRose {
     }
 
     private void updateByNameAged(Item item) {
-        if (item.quality < BASE_QUALITY) {
-            item.quality++;
-        }
+        increaseIfLessThanBaseQuality(item);
         item.sellIn--;
         if (item.sellIn < 0 && item.quality < BASE_QUALITY) {
             item.quality++;
@@ -64,14 +62,18 @@ public class GildedRose {
                 item.quality++;
             }
             if (item.sellIn < FEWER_SELLIN) {
-                if (item.quality < BASE_QUALITY) {
-                    item.quality++;
-                }
+                increaseIfLessThanBaseQuality(item);
             }
         }
         item.sellIn--;
         if(item.sellIn < 0){
             item.quality = 0;
+        }
+    }
+
+    private void increaseIfLessThanBaseQuality(Item item) {
+        if (item.quality < BASE_QUALITY) {
+            item.quality++;
         }
     }
 
