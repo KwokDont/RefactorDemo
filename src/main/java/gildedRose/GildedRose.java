@@ -58,4 +58,7 @@ public class GildedRose {
             }
         }
     }
+    public Item[] getItems() {
+        return items;
+    }
 }
