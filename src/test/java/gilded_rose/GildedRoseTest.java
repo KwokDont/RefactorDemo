@@ -41,7 +41,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void should_return_sellIn_9_quality_49_given_rose_Aged_sellIn_10_quality_49(){
+    public void should_return_sellIn_9_quality_50_given_rose_Aged_sellIn_10_quality_49(){
         Item item = new Item("Aged Brie",10,49);
         Item[] items = new Item[]{item};
 
@@ -49,5 +49,16 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
 
         Assert.assertEquals("Aged Brie, 9, 50",gildedRose.getItems()[0].toString());
+    }
+
+    @Test
+    public void should_return_sellIn_9_quality_50_given_rose_Backstage_sellIn_10_quality_48(){
+        Item item = new Item("Backstage passes to a TAFKAL80ETC concert",10,48);
+        Item[] items = new Item[]{item};
+
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        Assert.assertEquals("Backstage passes to a TAFKAL80ETC concert, 9, 50",gildedRose.getItems()[0].toString());
     }
 }
