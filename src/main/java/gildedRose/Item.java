@@ -1,9 +1,6 @@
 package gildedRose;
 
-import gildedRose.updator.AgedRoseUpdator;
-import gildedRose.updator.BackstageRoseUpdator;
-import gildedRose.updator.OtherRoseUpdator;
-import gildedRose.updator.SulfurasRoseUpdator;
+import gildedRose.updator.*;
 
 import static gildedRose.GildedRose.*;
 
@@ -15,10 +12,13 @@ public class Item {
 
     public int quality;
 
+    public RoseUpdator roseUpdator;
+
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+        this.roseUpdator = UpdatorFactory.createUpdator(name);
     }
 
     public void updateQuality() {
