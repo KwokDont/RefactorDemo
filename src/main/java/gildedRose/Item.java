@@ -1,6 +1,7 @@
 package gildedRose;
 
 import gildedRose.updator.AgedRoseUpdator;
+import gildedRose.updator.BackstageRoseUpdator;
 
 import static gildedRose.GildedRose.*;
 
@@ -25,7 +26,8 @@ public class Item {
                 agedRoseUpdator.updateQuality(this);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                updateByNameBackstage(this);
+                BackstageRoseUpdator backstageRoseUpdator = new BackstageRoseUpdator();
+                backstageRoseUpdator.updateQuality(this);
                 break;
             case "Sulfuras, Hand of Ragnaros":
                 updateByNameSulfuras(this);
@@ -42,22 +44,6 @@ public class Item {
         item.sellIn--;
         if (item.sellIn < 0 && item.quality > 0) {
             item.quality--;
-        }
-    }
-
-    private void updateByNameBackstage(Item item) {
-        if (item.quality < BASE_QUALITY) {
-            item.quality++;
-            if (item.sellIn < HIGHER_SELLIN && item.quality < BASE_QUALITY) {
-                item.quality++;
-            }
-            if (item.sellIn < FEWER_SELLIN) {
-                increaseIfLessThanBaseQuality(item);
-            }
-        }
-        item.sellIn--;
-        if(item.sellIn < 0){
-            item.quality = 0;
         }
     }
 
