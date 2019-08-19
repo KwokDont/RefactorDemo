@@ -22,23 +22,7 @@ public class Item {
     }
 
     public void updateQuality() {
-        switch (this.name) {
-            case "Aged Brie":
-                AgedRoseUpdator agedRoseUpdator = new AgedRoseUpdator();
-                agedRoseUpdator.updateQuality(this);
-                break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                BackstageRoseUpdator backstageRoseUpdator = new BackstageRoseUpdator();
-                backstageRoseUpdator.updateQuality(this);
-                break;
-            case "Sulfuras, Hand of Ragnaros":
-                SulfurasRoseUpdator sulfurasRoseUpdator = new SulfurasRoseUpdator();
-                sulfurasRoseUpdator.updateQuality(this);
-                break;
-            default:
-                OtherRoseUpdator otherRoseUpdator = new OtherRoseUpdator();
-                otherRoseUpdator.updateQuality(this);
-        }
+        roseUpdator.updateQuality(this);
     }
 
    @Override
