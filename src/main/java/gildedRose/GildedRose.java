@@ -1,10 +1,6 @@
 package gildedRose;
 public class GildedRose {
-    Item[] items;
-
-    public final static int BASE_QUALITY = 50;
-    public final static int FEWER_SELLIN = 6;
-    public final static int HIGHER_SELLIN = 11;
+    private Item[] items;
 
     public GildedRose(Item[] items) {
         this.items = items;

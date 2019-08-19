@@ -2,15 +2,13 @@ package gildedRose;
 
 import gildedRose.updator.*;
 
-import static gildedRose.GildedRose.*;
-
 public class Item {
 
-    public String name;
+    private String name;
 
-    public int sellIn;
+    private int sellIn;
 
-    public int quality;
+    private int quality;
 
     public RoseUpdator roseUpdator;
 
@@ -25,8 +23,18 @@ public class Item {
         roseUpdator.updateQuality(this);
     }
 
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
+    public String getName() { return name; }
+
+    public int getSellIn() { return sellIn; }
+
+    public int getQuality() { return quality; }
+
+    public void setSellIn(int sellIn) { this.sellIn = sellIn; }
+
+    public void setQuality(int quality) { this.quality = quality; }
 }
