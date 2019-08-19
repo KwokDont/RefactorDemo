@@ -2,6 +2,7 @@ package gildedRose;
 
 import gildedRose.updator.AgedRoseUpdator;
 import gildedRose.updator.BackstageRoseUpdator;
+import gildedRose.updator.SulfurasRoseUpdator;
 
 import static gildedRose.GildedRose.*;
 
@@ -30,7 +31,8 @@ public class Item {
                 backstageRoseUpdator.updateQuality(this);
                 break;
             case "Sulfuras, Hand of Ragnaros":
-                updateByNameSulfuras(this);
+                SulfurasRoseUpdator sulfurasRoseUpdator = new SulfurasRoseUpdator();
+                sulfurasRoseUpdator.updateQuality(this);
                 break;
             default:
                 updateByOtherName(this);
@@ -44,15 +46,6 @@ public class Item {
         item.sellIn--;
         if (item.sellIn < 0 && item.quality > 0) {
             item.quality--;
-        }
-    }
-
-    private void updateByNameSulfuras(Item item) {
-    }
-
-    private void increaseIfLessThanBaseQuality(Item item) {
-        if (item.quality < BASE_QUALITY) {
-            item.quality++;
         }
     }
 
