@@ -4,7 +4,7 @@ import gildedRose.Item;
 
 import static gildedRose.GildedRose.*;
 
-public class BackstageRoseUpdator {
+public class BackstageRoseUpdator extends RoseUpdator {
 
     public void updateQuality(Item item) {
         if (item.quality < BASE_QUALITY) {
@@ -19,12 +19,6 @@ public class BackstageRoseUpdator {
         item.sellIn--;
         if(item.sellIn < 0){
             item.quality = 0;
-        }
-    }
-
-    private void increaseIfLessThanBaseQuality(Item item) {
-        if (item.quality < BASE_QUALITY) {
-            item.quality++;
         }
     }
 }

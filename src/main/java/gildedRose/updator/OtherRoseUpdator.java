@@ -2,7 +2,7 @@ package gildedRose.updator;
 
 import gildedRose.Item;
 
-public class OtherRoseUpdator {
+public class OtherRoseUpdator extends RoseUpdator {
 
     public void updateQuality(Item item) {
         if (item.quality > 0) {
