@@ -19,6 +19,17 @@ public class GildedRoseTest {
     }
 
     @Test
+    public void should_return_sellIn_9_qulity_0_given_none_name_item_sellIn_is_10_quality_is_0() throws Exception {
+        Item item = new Item("Eddy Rose", 10, 0);
+        Item[] items = new Item[]{item};
+
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        Assert.assertEquals("Eddy Rose, 9, 0",gildedRose.getItems()[0].toString());
+    }
+
+    @Test
     public void should_return_sellIn_10_quality_49_given_rose_Sulfuras_sellIn_10_quality_49(){
         Item item = new Item("Sulfuras, Hand of Ragnaros",10,49);
         Item[] items = new Item[]{item};
