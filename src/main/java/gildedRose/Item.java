@@ -2,6 +2,7 @@ package gildedRose;
 
 import gildedRose.updator.AgedRoseUpdator;
 import gildedRose.updator.BackstageRoseUpdator;
+import gildedRose.updator.OtherRoseUpdator;
 import gildedRose.updator.SulfurasRoseUpdator;
 
 import static gildedRose.GildedRose.*;
@@ -35,17 +36,8 @@ public class Item {
                 sulfurasRoseUpdator.updateQuality(this);
                 break;
             default:
-                updateByOtherName(this);
-        }
-    }
-
-    private void updateByOtherName(Item item) {
-        if (item.quality > 0) {
-            item.quality--;
-        }
-        item.sellIn--;
-        if (item.sellIn < 0 && item.quality > 0) {
-            item.quality--;
+                OtherRoseUpdator otherRoseUpdator = new OtherRoseUpdator();
+                otherRoseUpdator.updateQuality(this);
         }
     }
 
